@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Passing Paraments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script th:inline="javascript">
+        function ShowMessage(){
+            document.getElementById("message2").innerHTML = "Thymeleaf String by JS: " + [[${message2}]];
+
+            var user = /*[[${user}]]*/ null ;
+            document.getElementById("user").innerHTML = "Thymeleaf Beans by JS: name ->"+ user.name +", age -> "+ user.age.toString();
+
+        }
+    </script>
+</head>
+
+<body>
+<!--/*@thymesVar id="message1" type="com.cn.ben.controller.EgController"*/-->
+<p th:text="${message1}">test</p>
+<p id="message2"></p>
+<p th:text="'name: ' + ${user.name} +', age: ' + ${user.age}"></p>
+<p id="user"></p>
+<!--<meta http-equiv="refresh" content="5;url=http://localhost:8080/say"/>-->
+<button onclick="ShowMessage()">Show Message From Java</button>
+</body>
+<!--<form action="http://localhost:8080/id" method="get">-->
+    <!--Name: <input type="text" name="the_Param" required="required" />-->
+<!--<input type="submit" />-->
+<!--</form>-->
+<!--<body>-->
+<!--<p>单文件上传</p>-->
+<!--<form action="upload" method="POST" enctype="multipart/form-data">-->
+    <!--文件：<input type="file" name="file"/>-->
+    <!--<input type="submit"/>-->
+<!--</form>-->
+<!--<hr/>-->
+<!--<p>文件下载</p>-->
+<!--<a href="download?">下载文件</a>-->
+<!--<hr/>-->
+<!--</body>-->
+</html>
