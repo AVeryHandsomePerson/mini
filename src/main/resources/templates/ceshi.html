@@ -1,57 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <!--<script src="echarts.min.js"></script>-->
-    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>JD</title>
+    <style>
+        #chart-wrap {
+            width: 910px;
+            height: 240px;
+            border: solid 1px #B3B3DC;
+            position: relative;
+            top: 40px;
+            left: 20px;
+        }
+    </style>
+    <!--引入echarts-->
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
 </head>
 <body>
-<div id="main" style="width: 600px;height:400px;"></div>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="ss" style="width: 10px;height:10px;">
+<h2>111111111</h2>
+</div>
+<script type="text/javascript">
+    // var myChart = echarts.init(document.getElementById('ss'));
+    // var re = ${pillars}
+    // var number = 0
+    // for (var i = 0; i < re.length}; i++) {
+    //     number =+ re[i].value
+    // }
+    // number
+</script>
+<div id="main" style="width: 600px;height:1000px;">
+
+</div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
-
-    // 指定图表的配置项和数据
-    var option = {
-        title: {
-            text: 'ECharts 入门示例'
+    var re = ${pillars}
+    var aa = []
+    for (var i = 0; i < re.length; i++) {
+        aa.push(re[i].name)
+    }
+    option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        tooltip: {},
         legend: {
-            data:['销量']
+            orient: 'vertical',
+            x: 'left',
+            data:aa
         },
-        xAxis: {
-            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '销量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-    myChart.setOptions({
-        series : [
+        series: [
             {
-                name: '访问来源',
-                type: 'pie',
-                radius: '55%',
-                data:[
-                    {value:235, name:'视频广告'},
-                    {value:274, name:'联盟广告'},
-                    {value:310, name:'邮件营销'},
-                    {value:335, name:'直接访问'},
-                    {value:400, name:'搜索引擎'}
-                ]
+                name:'访问来源',
+                type:'pie',
+                radius: ['50%', '70%'],
+                x:-500,
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:  re
             }
         ]
-    })
+    };
     // 使用刚指定的配置项和数据显示图表。
-    // myChart.setOption(option);
+    myChart.setOption(option);
 </script>
 
+<div id="zh" style="width: 1000px;height:1000px;"></div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('zh'));
 
+    var re = ${pillars}
+    var aname = []
+    var cout = []
+    for (var i = 0; i < re.length; i++) {
+        aname.push(re[i].name)
+        cout.push(re[i].value)
+    }
+    // console.log(aname)
+    option = {
+        grid: {
+            left: '8%',
+            right: '0',
+            bottom: '1%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            axisLabel: {
+                show: true,
+                // interval: 'auto',
+                interval:0,
+                rotate:"45"
+            },
+            data: aname
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            type: 'bar',
+            name : cout,
+            barWidth : '60%',
+            itemStyle : {
+                normal : {
+                    label: {
+                        show: true,
+                        position: 'top',
+                        textStyle: {
+                            color: 'white'
+                        }
+                    }
+                }
+             },
+            data: cout,
+
+        }]
+    };
+    myChart.setOption(option);
+</script>
 </body>
-
 </html>

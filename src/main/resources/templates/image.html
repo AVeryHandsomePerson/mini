@@ -11,11 +11,10 @@
     </style>
 </head>
 <body>
-<div height="400" width="600" style="margin:50px">
-    <h2>及如果为：${result}</h2>
+<div height="800" width="1000" style="margin:60px">
+    <h2>${name}</h2>
     <canvas id="chart"> 你的浏览器不支持HTML5 canvas </canvas>
 </div>
-
 <script type="text/javascript">
     function goChart(dataArr){
 
@@ -217,9 +216,6 @@
         });
 
     }
-    var chartData = [[50,"#2dc6c8","瓜子"], [100,"#b6a2dd", "花生"], [200,"#5ab1ee","土豆"], [700,"#d7797f","南瓜四号"], [70,"#d7797f","四号"]];
-
-    // var data = ${result}
     goChart(${result});
 
 
