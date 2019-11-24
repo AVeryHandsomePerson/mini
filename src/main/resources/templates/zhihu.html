@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div height="800" width="1000" style="margin:60px">
+    <h2>${name}</h2>
+    <canvas id="chart"> 你的浏览器不支持HTML5 canvas </canvas>
+
+    <table class="table_class" border="1px">
+        <thead>
+        <tr>
+            <td>名称</td>
+            <td>数量</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <!--把后端数据在这个地方循环-->
+        <#list pillars as data>
+            <tr>
+                <td>${data.name}</td>
+                <td>${data.value}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+    <a href="/download">下载</a>
+</div>
+
+<div height="800" width="1000" style="margin:60px">
+    <h2>${name}</h2>
+    <a href="#" onclick="submit(this)">进入京东</a>
+</div>
+</body>
+<script type="text/javascript">
+    function submit(thats){
+        console.log("进入放啊发")
+        window.location.href = "/homePage";
+    }
+</script>
+</html>

@@ -25,7 +25,6 @@ public class MyGetJd {
 
     public List<Map<String,Object>> getGardenJD1(){
        String sql = "SELECT book_name,witer_name,url,product_count,dt FROM jd order by product_count desc limit 10";
-
        List<Map<String,Object>> result = jdbcTemplate.queryForList(sql);
         List<Map<String,Object>>data = result.stream().map(map -> {
             Map<String,Object> m = new HashMap<>(2);
@@ -34,7 +33,18 @@ public class MyGetJd {
             return m;
         }).collect(Collectors.toList());
        return data;
+    }
 
+    public List<Map<String,Object>> getGardenZhiHu(){
+        String sql = "SELECT anwer_name,anwer_number FROM zhihu";
+        List<Map<String,Object>> result = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>>data = result.stream().map(map -> {
+            Map<String,Object> m = new HashMap<>(2);
+            m.put("name",map.getOrDefault("anwer_name",0));
+            m.put("value",map.getOrDefault("anwer_number",""));
+            return m;
+        }).collect(Collectors.toList());
+        return data;
     }
 
     private final String[] a = new String[]{"#2dc6c8", "#b6a2dd", "#5ab1ee", "#d7797f", "#d7797f", "#EA7500", "#6C3365", "#B766AD", "#C07AB8", "#B87070"};
