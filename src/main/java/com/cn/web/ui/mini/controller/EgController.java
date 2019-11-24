@@ -36,12 +36,18 @@ public class EgController {
     private static Logger logger = LoggerFactory.getLogger(EgController.class);
     @Autowired
     private MyGetJd myGetJd;
+
+    @RequestMapping("/")
+    public ModelAndView getIndex() {
+        ModelAndView modelAndView = new ModelAndView("/index");
+        return modelAndView;
+    }
+
+
     @RequestMapping("/jd")
     public ModelAndView test() {
-        ModelAndView modelAndView = new ModelAndView("/ceshi");
+        ModelAndView modelAndView = new ModelAndView("/jingdong");
         modelAndView.addObject("name","京东前10");
-//        modelAndView.addObject("result", JSON.toJSONString(my.getGardenJD()));
-//        modelAndView.addObject("pillars", JSON.toJSONString(myGetJd.getGardenJD1()));
         modelAndView.addObject("pillars", JSON.toJSONString(myGetJd.getGardenJD1()));
         return modelAndView;
     }
@@ -53,6 +59,32 @@ public class EgController {
 //        modelAndView.addObject("result", JSON.toJSONString(my.getGardenJD()));
 //        modelAndView.addObject("pillars", JSON.toJSONString(myGetJd.getGardenJD1()));
         modelAndView.addObject("pillars", myGetJd.getGardenZhiHu());
+        return modelAndView;
+    }
+
+    @RequestMapping("/douban")
+    public ModelAndView getDouBanData() {
+        ModelAndView modelAndView = new ModelAndView("/douban");
+        modelAndView.addObject("name","豆瓣小组");
+        modelAndView.addObject("pillars", myGetJd.getGardenDouBan());
+        return modelAndView;
+    }
+
+    @RequestMapping("/theory")
+    public ModelAndView getDouBanTheoryData() {
+        ModelAndView modelAndView = new ModelAndView("/doubantheory");
+        modelAndView.addObject("name","豆瓣小组");
+        modelAndView.addObject("pillars", myGetJd.getGardenDouThearyBan());
+        return modelAndView;
+    }
+
+
+
+    @RequestMapping("/weixin")
+    public ModelAndView getWeiXinData() {
+        ModelAndView modelAndView = new ModelAndView("/weixin");
+        modelAndView.addObject("name","微信公众号");
+        modelAndView.addObject("pillars", myGetJd.getWeiXinBan());
         return modelAndView;
     }
 
@@ -138,7 +170,15 @@ public class EgController {
     @RequestMapping("homePage")
     public ModelAndView homePage(){
         ModelAndView view = new ModelAndView("/jd");
-
         return view;
     }
+
+    //条状页面 就可以了
+    @RequestMapping("ceshi")
+    public ModelAndView homeCheShi(){
+        ModelAndView view = new ModelAndView("/ceshi");
+        return view;
+    }
+
+
 }

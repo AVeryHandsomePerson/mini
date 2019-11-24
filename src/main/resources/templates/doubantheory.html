@@ -22,8 +22,6 @@
         }
     </style>
     <link rel="stylesheet" href="/layui/css/layui.css">
-
-
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -31,12 +29,12 @@
         <div class="layui-logo"></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="/douban">豆瓣</a></li>
             <li class="layui-nav-item"><a href="/">返回首页</a></li>
         </ul>
     </div>
 </div>
 <div height="500" width="500" pxstyle="margin:40px" class="table-wrapper">
-    <h1>${name}</h1>
     <a href="/download" class="layui-btn">下载</a>
     <canvas id="chart"> 你的浏览器不支持HTML5 canvas </canvas>
     <table class="table_class" border="1px">

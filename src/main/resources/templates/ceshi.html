@@ -1,134 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>JD</title>
-    <style>
-        #chart-wrap {
-            width: 910px;
-            height: 240px;
-            border: solid 1px #B3B3DC;
-            position: relative;
-            top: 40px;
-            left: 20px;
-        }
-    </style>
-    <!--引入echarts-->
-    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
-<body>
-<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="ss" style="width: 10px;height:10px;">
-<h2>111111111</h2>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo"></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item" ><a href="/homePage">京东</a></li>
+            <li class="layui-nav-item"><a href="/zhihu">知乎</a></li>
+            <li class="layui-nav-item"><a href="/douban">豆瓣</a></li>
+        </ul>
+    </div>
 </div>
-<script type="text/javascript">
-</script>
-<div id="main" style="width: 600px;height:1000px;">
+<script src="/layui/lay/layui.js"></script>
+<script>
+    ;!function(){
+        //无需再执行layui.use()方法加载模块，直接使用即可
+        var form = layui.form
+            ,layer = layui.layer;
 
-</div>
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-    var re = ${pillars}
-    var aa = []
-    for (var i = 0; i < re.length; i++) {
-        aa.push(re[i].name)
-    }
-    option = {
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
-        },
-        legend: {
-            orient: 'vertical',
-            x: 'left',
-            data:aa
-        },
-        series: [
-            {
-                name:'访问来源',
-                type:'pie',
-                radius: ['50%', '70%'],
-                x:-500,
-                avoidLabelOverlap: false,
-                label: {
-                    normal: {
-                        show: false,
-                        position: 'center'
-                    },
-                    emphasis: {
-                        show: true,
-                        textStyle: {
-                            fontSize: '30',
-                            fontWeight: 'bold'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                data:  re
-            }
-        ]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-
-<div id="zh" style="width: 1000px;height:1000px;"></div>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('zh'));
-
-    var re = ${pillars}
-    var aname = []
-    var cout = []
-    for (var i = 0; i < re.length; i++) {
-        aname.push(re[i].name)
-        cout.push(re[i].value)
-    }
-    // console.log(aname)
-    option = {
-        grid: {
-            left: '8%',
-            right: '0',
-            bottom: '1%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            axisLabel: {
-                show: true,
-                // interval: 'auto',
-                interval:0,
-                rotate:"45"
-            },
-            data: aname
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            type: 'bar',
-            name : cout,
-            barWidth : '60%',
-            itemStyle : {
-                normal : {
-                    label: {
-                        show: true,
-                        position: 'top',
-                        textStyle: {
-                            color: 'white'
-                        }
-                    }
-                }
-             },
-            data: cout,
-
-        }]
-    };
-    myChart.setOption(option);
+        //…
+    }();
 </script>
 </body>
 </html>
