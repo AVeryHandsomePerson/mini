@@ -176,7 +176,7 @@ public class EgController {
     //条状页面 就可以了
     @RequestMapping("ceshi")
     public ModelAndView homeCheShi(){
-        ModelAndView view = new ModelAndView("/ceshi");
+        ModelAndView view = new ModelAndView("ceshi/ceshi");
         return view;
     }
 

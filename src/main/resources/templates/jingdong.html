@@ -4,13 +4,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>JD</title>
     <style>
-        #chart-wrap {
-            width: 910px;
-            height: 240px;
-            border: solid 1px #B3B3DC;
-            position: relative;
-            top: 40px;
-            left: 20px;
+        #main{
+            width: 600px;
+            height:1000px;
+            float: left;
+        }
+        #zh{
+            width: 600px;
+            height:800px;
+            float: right;
         }
     </style>
     <!--引入echarts-->
@@ -34,10 +36,14 @@
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <script type="text/javascript">
 </script>
-<div id="main" style="width: 600px;height:1000px;">
-
+<div>
+    <div id="main"> </div>
+    <div id="zh"></div>
 </div>
-<script type="text/javascript">
+<div >
+    <img src="/img/jd.jpg" width=1600px height=800px>
+</div>
+<script type="text/javascript" >
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
     var re = ${pillars}
@@ -88,7 +94,7 @@
     myChart.setOption(option);
 </script>
 
-<div id="zh" style="width: 1000px;height:1000px;"></div>
+
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('zh'));
 
