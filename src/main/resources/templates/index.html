@@ -3,31 +3,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>layout 后台大布局 - Layui</title>
+    <title>极简生活</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/lay/layui.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
+
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">信通哥</div>
+        <div class="layui-logo">极简生活</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item" ><a href="/homePage">京东图书</a></li>
+            <li class="layui-nav-item"><a href="/homePage">京东图书</a></li>
             <li class="layui-nav-item"><a href="/zhihu">知乎话题</a></li>
             <li class="layui-nav-item"><a href="/douban">豆瓣分组内容</a></li>
             <li class="layui-nav-item"><a href="/weixin">微信公众号</a></li>
+            <li class="layui-nav-item"><a href="/jijian">东西越少越幸福</a></li>
         </ul>
     </div>
 </div>
-<script src="/layui/lay/layui.js"></script>
-<script>
-    ;!function(){
-        //无需再执行layui.use()方法加载模块，直接使用即可
-        var form = layui.form
-            ,layer = layui.layer;
+<div  class="layui-collapse" lay-accordion="" width=800px>
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">东西越少越幸福？极简生活主义者调查</h2>
+        <div class="layui-colla-content layui-show">
+            <p>
+                极简主义不是要你一无所有，而是要你穿越物质的海洋，找到真正重要的东西。<br>
+                -----------------------------------------------------------------------——《极简主义》<br>
+                2019年11月11日，又到了一年一度的购物狂欢节。早晨六点，曲笑（化名）如往常一样：自然醒，穿上简单舒适的衣服，喝一杯纯牛奶、吃两块全麦面包，带着一个轻薄本就出了门。<br>
+                在公司楼下的星巴克看书到八点半，曲笑上楼开始了一天的上班生活。中午休息时，办公室的朋友们在讨论购物车里清空的衣服，凌晨抢购的化妆品，曲笑没有参与到其中，昨晚她睡得可香了。<br>
+                下班后，她回到家，简单、干净、没有太多装饰和摆设。吃过一碗冰牛奶泡粗粮燕麦片，曲笑翻开了昨晚看了一半的书。直至睡前，她也没有打开淘宝。<br>
+                曲笑是一名极简主义者，她从2017年10月加入这个圈子，到现在已经两年了。<br>
+                极简主义发源于 20 世纪六十年代的欧美，于八十年代末、九十年代初开始流行，中国的极简主义是在近几年才开始发展并迅速地被年轻人接受，渐而流行。<br>
+                下班后，她回到家，简单、干净、没有太多装饰和摆设。吃过一碗冰牛奶泡粗粮燕麦片，曲笑翻开了昨晚看了一半的书。直至睡前，她也没有打开淘宝。<br>
+                165 年前，一位智者实践了极简主义，并提出“人生的价值不应该在追求物质财富上”等极简主义理论。<br>
+                他就是美国作家亨利·戴维·梭罗，在《瓦尔登湖》中，他写道：“我愿意深深地扎入生活，吮尽生活的骨髓，过得扎实，简单，把一切不属于生活的内容剔除得干净利落，把生活逼到绝处，用最基本的形式，简单，简单，再简单。<br>
+                ”后来者亦有美国乔舒亚·菲尔茨·米尔本和瑞安·尼科迪默斯通过纪录片的形式将极简主义带到大众面前,山下英子在《断舍离》中提出许多深入浅出的理论，如断是断绝输入，舍是舍出去，离是在心理上摆脱对物质的执念。<br>
+                2011 年，美国极简主义者 Joshua & Ryan 创建了网站 The Minimalists，通过采访、博客、纪录片等现代化形式，将“极简主义”快速在全球推广开来。<br>
+            </p>
+        </div>
+    </div>
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">杜甫</h2>
+        <div id =  "dl" class="layui-colla-content" style='height:1000px;width:1500px;overflow:auto;' >
+            <p>
+                <!--<#list pillars as data>-->
+                <!--${data.name}<br>-->
+                <!--</#list>-->
+            </p>
+        </div>
+    </div>
 
-        //…
-    }();
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">李白</h2>
+        <div class="layui-colla-content">
+            <p>
+                无冠超越三冠王，某澡年年泪两行。<br>
+                某队不仅吹牛逼，卖惨情怀也第一。<br>
+                营销打造全华班，实力不行还装逼。<br>
+                去年没有含金量？亚军送你十六强。<br>
+                爆炸输出两千二，迷之天使直撞墙。<br>
+                三选伊泽你真强，刷伤无敌甩锅王。<br>
+                中野三级来抓下，世界第一需要帮？<br>
+                你要问我是哪个，无冠比肩三冠王。<br>
+                四强八强十六强，一年更比一年强。<br>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['element', 'layer'], function () {
+        var element = layui.element;
+        var layer = layui.layer;
+
+        //监听折叠
+        // element.on('collapse(test)', function(data){
+        //     // layer.msg('展开状态：'+ data.show);
+        // });
+    });
+</script>
+<script>
+    document.getElementById('d1').scrollTop=100;//通过scrollTop设置滚动到100位置
+    document.getElementById('d1').scrollLeft=200;//通过scrollTop设置滚动到200位置
 </script>
 </body>
 </html>

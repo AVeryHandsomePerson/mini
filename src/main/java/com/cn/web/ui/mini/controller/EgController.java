@@ -40,6 +40,7 @@ public class EgController {
     @RequestMapping("/")
     public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView("/index");
+        modelAndView.addObject("pillars", myGetJd.getGardenDouBan());
         return modelAndView;
     }
 
@@ -56,8 +57,6 @@ public class EgController {
     public ModelAndView getZhuHuData() {
         ModelAndView modelAndView = new ModelAndView("/zhihu");
         modelAndView.addObject("name","知乎");
-//        modelAndView.addObject("result", JSON.toJSONString(my.getGardenJD()));
-//        modelAndView.addObject("pillars", JSON.toJSONString(myGetJd.getGardenJD1()));
         modelAndView.addObject("pillars", myGetJd.getGardenZhiHu());
         return modelAndView;
     }
@@ -176,9 +175,14 @@ public class EgController {
     //条状页面 就可以了
     @RequestMapping("ceshi")
     public ModelAndView homeCheShi(){
-        ModelAndView view = new ModelAndView("ceshi/ceshi");
+        ModelAndView view = new ModelAndView("/ceshi/ceshi");
         return view;
     }
 
+    @RequestMapping("jijian")
+    public ModelAndView homeJiJian(){
+        ModelAndView view = new ModelAndView("/bbq");
+        return view;
+    }
 
 }

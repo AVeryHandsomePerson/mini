@@ -10,7 +10,7 @@
             float: left;
         }
         #zh{
-            width: 600px;
+            width: 700px;
             height:800px;
             float: right;
         }
@@ -107,43 +107,64 @@
     }
     // console.log(aname)
     option = {
+        title: {
+            text: '京东TOP',
+            subtext: '极简生活',
+            sublink: '/'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter: function (params) {
+                var tar;
+                if (params[1].value != '-') {
+                    tar = params[1];
+                }
+                else {
+                    tar = params[0];
+                }
+                return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+            }
+        },
+        legend: {
+            data:['总量']
+        },
         grid: {
-            left: '8%',
-            right: '0',
-            bottom: '1%',
+            left: '1%',
+            right: '2%',
+            bottom: '3%',
             containLabel: true
         },
         xAxis: {
-            type: 'category',
             axisLabel: {
                 show: true,
                 // interval: 'auto',
                 interval:0,
                 rotate:"45"
             },
-            data: aname
+            type : 'category',
+            splitLine: {show:false},
+            data : aname
         },
         yAxis: {
-            type: 'value'
+            type : 'value'
         },
-        series: [{
-            type: 'bar',
-            name : cout,
-            barWidth : '60%',
-            itemStyle : {
-                normal : {
-                    label: {
+        series: [
+            {
+                name: '销售',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
                         show: true,
-                        position: 'top',
-                        textStyle: {
-                            color: 'white'
-                        }
+                        position: 'top'
                     }
-                }
-             },
-            data: cout,
-
-        }]
+                },
+                data: cout
+            },
+        ]
     };
     myChart.setOption(option);
 </script>
